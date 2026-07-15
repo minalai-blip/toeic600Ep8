@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【EP8】多益600核心單字・打底特訓</title>
+    <title>【EP08】多益600核心單字・打底特訓</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -83,11 +83,11 @@
 <body>
 
 <div class="container">
-    <img src="banner.jpg" id="main-banner" alt="EP8 打底特訓" class="banner"> 
+    <img src="banner.jpg" id="main-banner" alt="EP08 打底特訓" class="banner"> 
 
     <div class="content-padding">
         <div id="intro-area" class="intro-header">
-            <h1>【EP8】基礎打底特訓</h1>
+            <h1>【EP08】基礎打底特訓</h1>
             <p>🔥 直覺 3 秒挑戰。5 題快速上手。🔥</p>
         </div>
 
@@ -128,69 +128,118 @@
             
             <div><span class="retry-link" onclick="initQuiz()">↺ 再練一次這組單字</span></div>
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdNkem-vuwWTDc5eEfhv4FlqpubNv7dsoY0uFQEcv4c5rCtyg/viewform?usp=header" class="cta-button" target="_blank">前往👉實戰驗收：📝多益模擬題型</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdNkem-vuwWTDc5eEfhv4FlqpubNv7dsoY0uFQEcv4c5rCtyg/viewform?usp=header" class="cta-button" target="_blank">前往👉下一關:中階情境演練</a>
 
             <div class="footer-upsell">
-                💡 這套「直覺單字+實戰刷題」模式很有效吧!完整多益衝刺計畫已在蝦皮上架。<br>
-                <a href="https://shopee.tw/YOUR_LINK" class="shopee-link" target="_blank">點此前往蝦皮賣場看更多</a>
+                這套「單字直覺」練習模式很有效吧!完整多益衝刺計畫已上架。<br>
+                <a href="https://shopee.tw/YOUR_LINK" class="shopee-link" target="_blank">點此前往看更多</a>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-// EP8 核心資料庫：完全移除首字母提示，改為純挖空
+// EP08 核心資料庫 (176 - 200 共 25 字，答案完全交替且完美重洗)
 const rawData = [
-    { type: "單字辨析", word: "<u><b>reduce</b></u> prices", show: "降低、減少", ans: true, feedback: "reduce 是「降低、減少」。" },
-    { type: "句型搭配", word: "reduce", show: "______ prices / 填入：reduce", ans: true, feedback: "應填入 reduce。" },
-    { type: "單字辨析", word: "park a <u><b>vehicle</b></u>", show: "車輛", ans: true, feedback: "vehicle 是「車輛」。" },
-    { type: "句型搭配", word: "vehicle", show: "park a ______ / 填入：vehicle", ans: true, feedback: "應填入 vehicle。" },
-    { type: "單字辨析", word: "<u><b>efficient</b></u> service", show: "環境、背景", ans: false, feedback: "efficient 是「效率高的」。" },
-    { type: "句型搭配", word: "efficient", show: "______ service / 填入：efficient", ans: true, feedback: "應填入 efficient。" },
-    { type: "單字辨析", word: "an electronics <u><b>manufacturer</b></u>", show: "製造商", ans: true, feedback: "manufacturer 是「製造商」。" },
-    { type: "句型搭配", word: "manufacturer", show: "an electronics ______ / 填入：method", ans: false, feedback: "應填入 manufacturer。" },
-    { type: "單字辨析", word: "<u><b>Comfortable</b></u> working environment", show: "舒適的、自在的", ans: true, feedback: "comfortable 是「舒適的、自在的」。" },
-    { type: "句型搭配", word: "comfortable", show: "______ working environment / 填入：Comfortable", ans: true, feedback: "應填入 Comfortable。" },
-    { type: "單字辨析", word: "the <u><b>correct</b></u> information", show: "錯誤的", ans: false, feedback: "correct 是「正確的」。" },
-    { type: "句型搭配", word: "correct", show: "the ______ information / 填入：correct", ans: true, feedback: "應填入 correct。" },
-    { type: "單字辨析", word: "<u><b>downtown</b></u> area", show: "市中心的", ans: true, feedback: "downtown 是「市中心的」。" },
-    { type: "句型搭配", word: "downtown", show: "______ area / 填入：entire", ans: false, feedback: "應填入 downtown。" },
-    { type: "單字辨析", word: "payment <u><b>method</b></u>", show: "方法", ans: true, feedback: "method 是「方法」。" },
-    { type: "句型搭配", word: "method", show: "payment ______ / 填入：method", ans: true, feedback: "應填入 method。" },
-    { type: "單字辨析", word: "the <u><b>entire</b></u> team", show: "全體的", ans: true, feedback: "entire 是「全體的、整個的」。" },
-    { type: "句型搭配", word: "entire", show: "the ______ team / 填入：temporary", ans: false, feedback: "應填入 entire。" },
-    { type: "單字辨析", word: "a wide <u><b>range</b></u> of products", show: "燃料", ans: false, feedback: "range 是「種類，系列」。" },
-    { type: "句型搭配", word: "range", show: "a wide ______ of products / 填入：range", ans: true, feedback: "應填入 range。" },
-    { type: "單字辨析", word: "a quiet <u><b>setting</b></u>", show: "環境、背景", ans: true, feedback: "setting 是「環境、背景」。" },
-    { type: "句型搭配", word: "setting", show: "a quiet ______ / 填入：setting", ans: true, feedback: "應填入 setting。" },
-    { type: "單字辨析", word: "We <u><b>apologize</b></u> for the inconvenience.", show: "道歉", ans: true, feedback: "apologize 是「道歉」。" },
-    { type: "句型搭配", word: "apologize", show: "We ______ for the inconvenience. / 填入：determine", ans: false, feedback: "應填入 apologize。" },
-    { type: "單字辨析", word: "<u><b>frequent</b></u> travelers", show: "經常的，頻繁的", ans: true, feedback: "frequent 是「經常的，頻繁的」。" },
-    { type: "句型搭配", word: "frequent", show: "______ travelers / 填入：frequent", ans: true, feedback: "應填入 frequent。" },
-    { type: "單字辨析", word: "a quick <u><b>promotion</b></u> to sales manager", show: "降價", ans: false, feedback: "promotion 是「晉升」。" },
-    { type: "句型搭配", word: "promotion", show: "a quick ______ to sales manager / 填入：promotion", ans: true, feedback: "應填入 promotion。" },
-    { type: "單字辨析", word: "<u><b>regarding</b></u> your request", show: "有關", ans: true, feedback: "regarding 是「有關」。" },
-    { type: "句型搭配", word: "regarding", show: "______ your request / 填入：traditional", ans: false, feedback: "應填入 regarding。" },
-    { type: "單字辨析", word: "<u><b>temporary</b></u> workers", show: "暫時的、臨時的", ans: true, feedback: "temporary 是「暫時的、臨時的」。" },
-    { type: "句型搭配", word: "temporary", show: "______ workers / 填入：temporary", ans: true, feedback: "應填入 temporary。" },
-    { type: "單字辨析", word: "<u><b>traditional</b></u> Japanese culture", show: "傳統的", ans: true, feedback: "traditional 是「傳統的」。" },
-    { type: "句型搭配", word: "traditional", show: "______ Japanese culture / 填入：efficient", ans: false, feedback: "應填入 traditional。" },
-    { type: "單字辨析", word: "<u><b>Admission</b></u> is free for all members.", show: "入場(費)、入場許可", ans: true, feedback: "admission 是「入場(費)、入場許可」。" },
-    { type: "句型搭配", word: "admission", show: "______ is free for all members. / 填入：Admission", ans: true, feedback: "應填入 Admission。" },
-    { type: "單字辨析", word: "The meeting room can <u><b>fit</b></u> 50 people.", show: "適合;可容納", ans: true, feedback: "fit 是「適合;可容納」。" },
-    { type: "句型搭配", word: "fit", show: "The meeting room can ______ 50 people. / 填入：reduce", ans: false, feedback: "應填入 fit。" },
-    { type: "單字辨析", word: "a job <u><b>reference</b></u>", show: "推薦人", ans: true, feedback: "reference 是「推薦人」。" },
-    { type: "句型搭配", word: "reference", show: "a job ______ / 填入：reference", ans: true, feedback: "應填入 reference。" },
-    { type: "單字辨析", word: "delivery <u><b>status</b></u>", show: "狀態", ans: true, feedback: "status 是「狀態」。" },
-    { type: "句型搭配", word: "status", show: "delivery ______ / 填入：setting", ans: false, feedback: "應填入 status。" },
-    { type: "單字辨析", word: "<u><b>fuel</b></u> prices", show: "燃料", ans: true, feedback: "fuel 是「燃料」。" },
-    { type: "句型搭配", word: "fuel", show: "______ prices / 填入：fuel", ans: true, feedback: "應填入 fuel。" },
-    { type: "單字辨析", word: "<u><b>nearly</b></u> three months", show: "將近", ans: true, feedback: "nearly 是「將近」。" },
-    { type: "句型搭配", word: "nearly", show: "______ three months / 填入：correct", ans: false, feedback: "應填入 nearly。" },
-    { type: "單字辨析", word: "meet in the <u><b>cafeteria</b></u> for lunch", show: "員工餐廳", ans: true, feedback: "cafeteria 是「員工餐廳」。" },
-    { type: "句型搭配", word: "cafeteria", show: "meet in the ______ for lunch / 填入：cafeteria", ans: true, feedback: "應填入 cafeteria。" },
-    { type: "單字辨析", word: "<u><b>determine</b></u> how to allocate the budget", show: "決定", ans: true, feedback: "determine 是「決定」。" },
-    { type: "句型搭配", word: "determine", show: "______ how to allocate the budget / 填入：apologize", ans: false, feedback: "應填入 determine。" }
+    // 176. reduce (辨析: True / 句型: False)
+    { id: "reduce", type: "單字辨析", word: "<u><b>reduce</b></u> prices", show: "降低、減少", ans: true, feedback: "reduce 是動詞「降低、減少」。" },
+    { id: "reduce", type: "句型搭配", show: "______ prices / 填入：vehicle", ans: false, feedback: "應填入 reduce。" },
+
+    // 177. vehicle (辨析: False / 句型: True)
+    { id: "vehicle", type: "單字辨析", word: "park a <u><b>vehicle</b></u>", show: "效率高的", ans: false, feedback: "vehicle 是名詞「車輛」。" },
+    { id: "vehicle", type: "句型搭配", show: "park a ______ / 填入：vehicle", ans: true, feedback: "應填入 vehicle。" },
+
+    // 178. efficient (辨析: True / 句型: False)
+    { id: "efficient", type: "單字辨析", word: "<u><b>efficient</b></u> service", show: "效率高的", ans: true, feedback: "efficient 是形容詞「效率高的」。" },
+    { id: "efficient", type: "句型搭配", show: "______ service / 填入：method", ans: false, feedback: "應填入 efficient。" },
+
+    // 179. manufacturer (辨析: False / 句型: True)
+    { id: "manufacturer", type: "單字辨析", word: "an electronics <u><b>manufacturer</b></u>", show: "舒適的、自在的", ans: false, feedback: "manufacturer 是名詞「製造商」。" },
+    { id: "manufacturer", type: "句型搭配", show: "an electronics ______ / 填入：manufacturer", ans: true, feedback: "應填入 manufacturer。" },
+
+    // 180. comfortable (辨析: True / 句型: False)
+    { id: "comfortable", type: "單字辨析", word: "<u><b>Comfortable</b></u> working environment", show: "舒適的、自在的", ans: true, feedback: "comfortable 是形容詞「舒適的、自在的」。" },
+    { id: "comfortable", type: "句型搭配", show: "______ working environment / 填入：range", ans: false, feedback: "應填入 comfortable。" },
+
+    // 181. correct (辨析: False / 句型: True)
+    { id: "correct", type: "單字辨析", word: "the <u><b>correct</b></u> information", show: "市中心的", ans: false, feedback: "correct 是形容詞「正確的」。" },
+    { id: "correct", type: "句型搭配", show: "the ______ information / 填入：correct", ans: true, feedback: "應填入 correct。" },
+
+    // 182. downtown (辨析: True / 句型: False)
+    { id: "downtown", type: "單字辨析", word: "<u><b>downtown</b></u> area", show: "市中心的", ans: true, feedback: "downtown 是形容詞「市中心的」。" },
+    { id: "downtown", type: "句型搭配", show: "______ area / 填入：method", ans: false, feedback: "應填入 downtown。" },
+
+    // 183. method (辨析: False / 句型: True)
+    { id: "method", type: "單字辨析", word: "payment <u><b>method</b></u>", show: "全體的", ans: false, feedback: "method 是名詞「方法」。" },
+    { id: "method", type: "句型搭配", show: "payment ______ / 填入：method", ans: true, feedback: "應填入 method。" },
+
+    // 184. entire (辨析: True / 句型: False)
+    { id: "entire", type: "單字辨析", word: "the <u><b>entire</b></u> team", show: "全體的", ans: true, feedback: "entire 是形容詞「全體的」。" },
+    { id: "entire", type: "句型搭配", show: "the ______ team / 填入：range", ans: false, feedback: "應填入 entire。" },
+
+    // 185. range (辨析: False / 句型: True)
+    { id: "range", type: "單字辨析", word: "a wide <u><b>range</b></u> of products", show: "環境、背景", ans: false, feedback: "range 是名詞「種類，系列」。" },
+    { id: "range", type: "句型搭配", show: "a wide ______ of products / 填入：range", ans: true, feedback: "應填入 range。" },
+
+    // 186. setting (辨析: True / 句型: False)
+    { id: "setting", type: "單字辨析", word: "a quiet <u><b>setting</b></u>", show: "環境、背景", ans: true, feedback: "setting 是名詞「環境、背景」。" },
+    { id: "setting", type: "句型搭配", show: "a quiet ______ / 填入：apologize", ans: false, feedback: "應填入 setting。" },
+
+    // 187. apologize (辨析: False / 句型: True)
+    { id: "apologize", type: "單字辨析", word: "We <u><b>apologize</b></u> for the inconvenience.", show: "經常的，頻繁的", ans: false, feedback: "apologize 是動詞「道歉」。" },
+    { id: "apologize", type: "句型搭配", show: "We ______ for the inconvenience. / 填入：apologize", ans: true, feedback: "應填入 apologize。" },
+
+    // 188. frequent (辨析: True / 句型: False)
+    { id: "frequent", type: "單字辨析", word: "<u><b>frequent</b></u> travelers", show: "經常的，頻繁的", ans: true, feedback: "frequent 是形容詞「經常的，頻繁的」。" },
+    { id: "frequent", type: "句型搭配", show: "______ travelers / 填入：promotion", ans: false, feedback: "應填入 frequent。" },
+
+    // 189. promotion (辨析: False / 句型: True)
+    { id: "promotion", type: "單字辨析", word: "a quick <u><b>promotion</b></u> to sales manager", show: "有關", ans: false, feedback: "promotion 是名詞「晉升」。" },
+    { id: "promotion", type: "句型搭配", show: "a quick ______ to sales manager / 填入：promotion", ans: true, feedback: "應填入 promotion。" },
+
+    // 190. regarding (辨析: True / 句型: False)
+    { id: "regarding", type: "單字辨析", word: "<u><b>regarding</b></u> your request", show: "有關", ans: true, feedback: "regarding 是介系詞「有關」。" },
+    { id: "regarding", type: "句型搭配", show: "______ your request / 填入：temporary", ans: false, feedback: "應填入 regarding。" },
+
+    // 191. temporary (辨析: False / 句型: True)
+    { id: "temporary", type: "單字辨析", word: "<u><b>temporary</b></u> workers", show: "傳統的", ans: false, feedback: "temporary 是形容詞「暫時的、臨時的」。" },
+    { id: "temporary", type: "句型搭配", show: "______ workers / 填入：temporary", ans: true, feedback: "應填入 temporary。" },
+
+    // 192. traditional (辨析: True / 句型: False)
+    { id: "traditional", type: "單字辨析", word: "<u><b>traditional</b></u> Japanese culture", show: "傳統的", ans: true, feedback: "traditional 是形容詞「傳統的」。" },
+    { id: "traditional", type: "句型搭配", show: "______ Japanese culture / 填入：admission", ans: false, feedback: "應填入 traditional。" },
+
+    // 193. admission (辨析: False / 句型: True)
+    { id: "admission", type: "單字辨析", word: "<u><b>Admission</b></u> is free for all members.", show: "適合;可容納", ans: false, feedback: "admission 是名詞「入場(費)、入場許可」。" },
+    { id: "admission", type: "句型搭配", show: "______ is free for all members. / 填入：Admission", ans: true, feedback: "應填入 Admission。" },
+
+    // 194. fit (辨析: True / 句型: False)
+    { id: "fit", type: "單字辨析", word: "The meeting room can <u><b>fit</b></u> 50 people.", show: "適合;可容納", ans: true, feedback: "fit 是動詞「適合;可容納」。" },
+    { id: "fit", type: "句型搭配", show: "The meeting room can ______ 50 people. / 填入：reference", ans: false, feedback: "應填入 fit。" },
+
+    // 195. reference (辨析: False / 句型: True)
+    { id: "reference", type: "單字辨析", word: "a job <u><b>reference</b></u>", show: "狀態", ans: false, feedback: "reference 是名詞「推薦人」。" },
+    { id: "reference", type: "句型搭配", show: "a job ______ / 填入：reference", ans: true, feedback: "應填入 reference。" },
+
+    // 196. status (辨析: True / 句型: False)
+    { id: "status", type: "單字辨析", word: "delivery <u><b>status</b></u>", show: "狀態", ans: true, feedback: "status 是名詞「狀態」。" },
+    { id: "status", type: "句型搭配", show: "delivery ______ / 填入：fuel", ans: false, feedback: "應填入 status。" },
+
+    // 197. fuel (辨析: False / 句型: True)
+    { id: "fuel", type: "單字辨析", word: "fuel <u><b>prices</b></u>", show: "將近", ans: false, feedback: "fuel 是名詞「燃料」。" },
+    { id: "fuel", type: "句型搭配", show: "______ prices / 填入：fuel", ans: true, feedback: "應填入 fuel。" },
+
+    // 198. nearly (辨析: True / 句型: False)
+    { id: "nearly", type: "單字辨析", word: "<u><b>nearly</b></u> three months", show: "將近", ans: true, feedback: "nearly 是副詞「將近」。" },
+    { id: "nearly", type: "句型搭配", show: "______ three months / 填入：cafeteria", ans: false, feedback: "應填入 nearly。" },
+
+    // 199. cafeteria (辨析: False / 句型: True)
+    { id: "cafeteria", type: "單字辨析", word: "meet in the <u><b>cafeteria</b></u> for lunch", show: "決定", ans: false, feedback: "cafeteria 是名詞「員工餐廳」。" },
+    { id: "cafeteria", type: "句型搭配", show: "meet in the ______ for lunch / 填入：cafeteria", ans: true, feedback: "應填入 cafeteria。" },
+
+    // 200. determine (辨析: True / 句型: False)
+    { id: "determine", type: "單字辨析", word: "<u><b>determine</b></u> how to allocate the budget", show: "決定", ans: true, feedback: "determine 是動詞「決定」。" },
+    { id: "determine", type: "句型搭配", show: "______ how to allocate the budget / 填入：fit", ans: false, feedback: "應填入 determine。" }
 ];
 
 let questions = [];
@@ -199,9 +248,36 @@ let score = 0;
 let userHistoryList = []; 
 
 function initQuiz() {
-    const shuffled = [...rawData].sort(() => 0.5 - Math.random());
-    questions = shuffled.slice(0, 5);
-    currentIndex = 0; score = 0; userHistoryList = [];
+    const groups = {};
+    rawData.forEach(item => {
+        if (!groups[item.id]) groups[item.id] = [];
+        groups[item.id].push(item);
+    });
+
+    const wordIds = Object.keys(groups);
+    const shuffledIds = wordIds.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+    // 強制分配題型：每次抽出的 5 題中兩種類型（辨析與搭配）各自至少占一半
+    const typesToAssign = ["單字辨析", "單字辨析", "句型搭配", "句型搭配", Math.random() > 0.5 ? "單字辨析" : "句型搭配"];
+    typesToAssign.sort(() => 0.5 - Math.random());
+
+    let selectedQuestions = [];
+    shuffledIds.forEach((id, index) => {
+        const targetType = typesToAssign[index];
+        const questionOfTargetType = groups[id].find(q => q.type === targetType);
+        if (questionOfTargetType) {
+            selectedQuestions.push(questionOfTargetType);
+        } else {
+            const randomPick = groups[id][Math.floor(Math.random() * groups[id].length)];
+            selectedQuestions.push(randomPick);
+        }
+    });
+
+    questions = selectedQuestions.sort(() => 0.5 - Math.random());
+    
+    currentIndex = 0; 
+    score = 0; 
+    userHistoryList = [];
     document.getElementById('main-banner').classList.remove('compact');
     document.getElementById('intro-area').style.display = 'block';
     document.getElementById('quiz-section').style.display = 'block';
@@ -217,9 +293,11 @@ function loadQuestion() {
     document.getElementById('type-tag').innerText = q.type;
     const wordEl = document.getElementById('word');
     
+    // 每次載入新題目時徹底初始化內部元素，解決交叉污染與殘留問題
     if (q.type === "句型搭配") {
-        wordEl.style.display = 'none';
-        document.getElementById('content').innerText = q.show;
+        wordEl.style.display = 'none'; 
+        wordEl.innerHTML = ''; 
+        document.getElementById('content').innerText = q.show; 
     } else {
         wordEl.style.display = 'block';
         wordEl.innerHTML = q.word; 
@@ -237,7 +315,13 @@ function handleAnswer(userAns) {
     document.querySelectorAll('.btn-group button').forEach(b => b.disabled = true);
     feedback.style.display = 'block';
     const isCorrect = (userAns === q.ans);
-    userHistoryList.push({ word: q.word, isCorrect: isCorrect, feedback: q.feedback });
+    
+    userHistoryList.push({ 
+        word: q.type === "句型搭配" ? "句型搭配" : q.word, 
+        isCorrect: isCorrect, 
+        feedback: q.feedback 
+    });
+    
     if (isCorrect) {
         score += 20;
         feedback.innerText = "✅ " + q.feedback;
@@ -265,11 +349,11 @@ function showResult() {
     const now = new Date();
     const timeStr = `${now.getMonth() + 1}/${now.getDate()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
-    // 使用獨立的 EP8 儲存欄位
-    let history = JSON.parse(localStorage.getItem('toeic_history_ep8')) || [];
+    // 使用關卡專屬快取緩存 Key 值 (EP08 版)
+    let history = JSON.parse(localStorage.getItem('toeic_history_ep08_v1')) || [];
     history.unshift({ score: score, time: timeStr });
     if(history.length > 5) history.pop();
-    localStorage.setItem('toeic_history_ep8', JSON.stringify(history));
+    localStorage.setItem('toeic_history_ep08_v1', JSON.stringify(history));
     renderHistoryList(history);
 
     document.getElementById('review-list').innerHTML = userHistoryList.map(item => `
@@ -296,7 +380,7 @@ function renderHistoryList(history) {
 
 function confirmClear() {
     if (confirm("確定要清除所有練習紀錄嗎？")) {
-        localStorage.removeItem('toeic_history_ep8');
+        localStorage.removeItem('toeic_history_ep08_v1');
         renderHistoryList([]);
     }
 }
